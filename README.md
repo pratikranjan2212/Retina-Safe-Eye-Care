@@ -133,19 +133,6 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## 📄 License
-
-This project is open source and available for personal and educational use.
-
----
-
-## 👤 Author
-
-**Pratik Ranjan**
-- GitHub: [@pratikranjan2212](https://github.com/pratikranjan2212)
-
----
-
 <div align="center">
 
 **⭐ If you found this project helpful, please consider giving it a star!**
