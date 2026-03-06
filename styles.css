@@ -336,6 +336,78 @@ h1 {
     top: 1rem;
 }
 
+/* ══════════════════════════════════════════════════
+   Mobile Responsive
+   ══════════════════════════════════════════════════ */
+
+/* Ensure the iris background never blocks touch/scroll */
+.iris-bg {
+    pointer-events: none;
+}
+
+/* Ensure html & body allow scrolling on all devices */
+html,
+body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 80px; /* more room for disclaimer on small screens */
+    }
+
+    main {
+        padding: 2rem 1.25rem;
+    }
+
+    .dashboard-header {
+        margin-bottom: 2.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .dashboard-subtitle {
+        font-size: 1rem;
+    }
+
+    .techniques-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .glass-card {
+        padding: 1.75rem;
+    }
+
+    .technique-card h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 400px) {
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .card-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .card-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
