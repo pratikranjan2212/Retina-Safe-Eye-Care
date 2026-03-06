@@ -1,0 +1,352 @@
+/* ══════════════════════════════════════════════════
+   RetinaSafe — Dashboard Styles
+   ══════════════════════════════════════════════════ */
+:root {
+    /* ── Primary Blue Palette ── */
+    --blue-900: #1E3A5F;
+    --blue-800: #1E40AF;
+    --blue-700: #1D4ED8;
+    --blue-600: #2563EB;
+    --blue-500: #3B82F6;
+    --blue-400: #60A5FA;
+    --blue-300: #93C5FD;
+    --blue-200: #BFDBFE;
+    --blue-100: #DBEAFE;
+    --blue-50: #EFF6FF;
+    --page-bg: #F8FBFF;
+    --white: #FFFFFF;
+
+    /* ── Text Colours ── */
+    --text-primary: #1E3A5F;
+    --text-secondary: #3D5A80;
+    --text-muted: #6B8CAE;
+
+    /* ── Radius & Shadow ── */
+    --radius: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 1px 3px rgba(30, 58, 95, 0.06);
+    --shadow-md: 0 4px 16px rgba(30, 58, 95, 0.08);
+
+    /* ── Typography ── */
+    --font-display: 'Lora', Georgia, serif;
+    --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+    --body-font-size: 18px;
+    --line-height: 1.75;
+}
+
+/* ══════════════════════════════════════════════════
+   Base Reset
+   ══════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--body-font-size);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    line-height: var(--line-height);
+    background-color: var(--page-bg);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 60px;
+    /* Room for medical disclaimer */
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--blue-900);
+    line-height: 1.25;
+}
+
+/* ══════════════════════════════════════════════════
+   Background (Iris Motif)
+   ══════════════════════════════════════════════════ */
+.iris-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 30% 30% at 50% 50%, rgba(30, 58, 95, 0.06) 0%, transparent 100%),
+        radial-gradient(ellipse 55% 55% at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 100%),
+        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 100%),
+        radial-gradient(ellipse 110% 110% at 50% 50%, rgba(147, 197, 253, 0.06) 0%, transparent 100%),
+        radial-gradient(ellipse 140% 140% at 50% 50%, var(--blue-50) 0%, var(--page-bg) 100%);
+}
+
+.iris-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%,
+            transparent 20%, rgba(37, 99, 235, 0.015) 30%,
+            transparent 40%, rgba(37, 99, 235, 0.01) 55%,
+            transparent 65%, rgba(37, 99, 235, 0.008) 80%, transparent 100%);
+    animation: irisPulse 8s ease-in-out infinite;
+}
+
+@keyframes irisPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+/* ══════════════════════════════════════════════════
+   Layout & Typography Details
+   ══════════════════════════════════════════════════ */
+main {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-header {
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 4rem;
+}
+
+.eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--blue-600);
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.eyebrow::before {
+    content: "—  ";
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.dashboard-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════════
+   Grid & Cards
+   ══════════════════════════════════════════════════ */
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(191, 219, 254, 0.5);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    padding: 2.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.technique-card:hover,
+.technique-card:focus-visible {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
+.technique-card:focus-visible {
+    border-color: var(--blue-400);
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-200);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--blue-600);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.technique-card:hover .card-icon {
+    background: var(--blue-600);
+    color: var(--white);
+    border-color: var(--blue-600);
+}
+
+.card-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.technique-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.technique-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-primary {
+    padding: 0.6rem 1.75rem;
+    border-radius: 100px;
+    background: var(--blue-600);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 14px rgba(37, 99, 235, 0.30);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.technique-card:hover .btn-primary {
+    background: var(--blue-700);
+}
+
+.btn-primary svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+}
+
+.technique-card:hover .btn-primary svg {
+    transform: translateX(4px);
+}
+
+/* ══════════════════════════════════════════════════
+   Animations
+   ══════════════════════════════════════════════════ */
+.rs-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rs-delay-1 {
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ══════════════════════════════════════════════════
+   Disclaimer & Skip Link
+   ══════════════════════════════════════════════════ */
+.medical-disclaimer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--blue-50);
+    border-top: 1px solid var(--blue-100);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    z-index: 50;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--blue-600);
+    color: var(--white);
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 500;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .iris-bg::before {
+        display: none;
+    }
+}
