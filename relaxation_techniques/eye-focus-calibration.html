@@ -15,6 +15,10 @@
         href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme.css">
+    <script src="../theme-switcher.js"></script>
+
     <style>
         /* ══════════════════════════════════════════════════
        1. Design Tokens (RetinaSafe Palette)
@@ -410,12 +414,12 @@
             align-items: center;
             gap: 1.5rem;
             padding: 0.75rem 1.75rem;
-            background: rgba(255, 255, 255, 0.80);
+            background: var(--blue-50);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(191, 219, 254, 0.45);
+            border: 1px solid var(--blue-200);
             border-radius: 100px;
-            box-shadow: 0 4px 24px rgba(30, 58, 95, 0.08);
+            box-shadow: var(--shadow-lg);
         }
 
         .metrics-panel.visible {
@@ -492,15 +496,15 @@
         }
 
         .status-badge.optimal {
-            background: var(--blue-50);
+            background: var(--page-bg);
             color: var(--blue-600);
             border: 1px solid var(--blue-200);
         }
 
         .status-badge.struggling {
-            background: rgba(30, 64, 175, 0.08);
+            background: var(--blue-100);
             color: var(--blue-800);
-            border: 1px solid rgba(30, 64, 175, 0.2);
+            border: 1px solid var(--blue-300);
         }
 
         .status-indicator {
@@ -909,36 +913,7 @@
                 </div>
             </div>
 
-            <div class="adjustments-list">
-                <h3>UI Adjustments</h3>
-                <div class="adjustment-item inactive" id="adj-fontsize">
-                    <svg class="check-icon" viewBox="0 0 24 24">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <svg class="dash-icon" viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    <span>Font size increased to <strong>20px</strong></span>
-                </div>
-                <div class="adjustment-item inactive" id="adj-lineheight">
-                    <svg class="check-icon" viewBox="0 0 24 24">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <svg class="dash-icon" viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    <span>Line height increased to <strong>2.0</strong></span>
-                </div>
-                <div class="adjustment-item inactive" id="adj-contrast">
-                    <svg class="check-icon" viewBox="0 0 24 24">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <svg class="dash-icon" viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    <span>Contrast boosted to <strong>--text-primary</strong></span>
-                </div>
-            </div>
+
 
             <button class="btn-outline" id="btn-restart" type="button">Recalibrate</button>
 
@@ -974,6 +949,8 @@
             <span id="status-text">Optimal</span>
         </div>
     </div>
+
+
 
     <!-- ═══════ Progress Bar ═══════ -->
     <div class="progress-track" id="progress-track">
@@ -1024,9 +1001,6 @@
             const resAvgLatency = document.getElementById('res-avg-latency');
             const resAccuracy = document.getElementById('res-accuracy');
             const resStruggle = document.getElementById('res-struggle');
-            const adjFontsize = document.getElementById('adj-fontsize');
-            const adjLineheight = document.getElementById('adj-lineheight');
-            const adjContrast = document.getElementById('adj-contrast');
 
             const root = document.documentElement;
 
@@ -1121,6 +1095,7 @@
                 cursorX = w / 2;
                 cursorY = h / 2;
 
+                // Show arena and metrics
                 // Show arena and metrics
                 arena.classList.add('active');
                 metricsPanel.classList.add('visible');
@@ -1267,29 +1242,7 @@
                 resStruggle.textContent = `${Math.round(strugglePct)}%`;
 
                 // Highlight applied adjustments
-                if (adjustmentsApplied.fontSize) {
-                    adjFontsize.classList.add('applied');
-                    adjFontsize.classList.remove('inactive');
-                } else {
-                    adjFontsize.classList.remove('applied');
-                    adjFontsize.classList.add('inactive');
-                }
 
-                if (adjustmentsApplied.lineHeight) {
-                    adjLineheight.classList.add('applied');
-                    adjLineheight.classList.remove('inactive');
-                } else {
-                    adjLineheight.classList.remove('applied');
-                    adjLineheight.classList.add('inactive');
-                }
-
-                if (adjustmentsApplied.contrast) {
-                    adjContrast.classList.add('applied');
-                    adjContrast.classList.remove('inactive');
-                } else {
-                    adjContrast.classList.remove('applied');
-                    adjContrast.classList.add('inactive');
-                }
 
                 // Show results
                 resultsScreen.classList.add('visible');
