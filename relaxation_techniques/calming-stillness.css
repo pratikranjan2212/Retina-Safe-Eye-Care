@@ -2,37 +2,37 @@
    RetinaSafe — Calming Stillness Styles
    ══════════════════════════════════════════════════ */
 :root {
-    /* ── Primary Blue Palette (RetinaSafe Standard) ── */
-    --blue-900: #1E3A5F;
-    --blue-800: #1E40AF;
-    --blue-700: #1D4ED8;
-    --blue-600: #2563EB;
-    --blue-500: #3B82F6;
-    --blue-400: #60A5FA;
-    --blue-300: #93C5FD;
-    --blue-200: #BFDBFE;
-    --blue-100: #DBEAFE;
-    --blue-50: #EFF6FF;
-    --page-bg: #F8FBFF;
-    --white: #FFFFFF;
+  /* ── Primary Blue Palette (RetinaSafe Standard) ── */
+  --blue-900: #1E3A5F;
+  --blue-800: #1E40AF;
+  --blue-700: #1D4ED8;
+  --blue-600: #2563EB;
+  --blue-500: #3B82F6;
+  --blue-400: #60A5FA;
+  --blue-300: #93C5FD;
+  --blue-200: #BFDBFE;
+  --blue-100: #DBEAFE;
+  --blue-50: #EFF6FF;
+  --page-bg: #F8FBFF;
+  --white: #FFFFFF;
 
-    /* ── Text Colours ── */
-    --text-primary: #1E3A5F;
-    --text-secondary: #3D5A80;
-    --text-muted: #6B8CAE;
+  /* ── Text Colours ── */
+  --text-primary: #1E3A5F;
+  --text-secondary: #3D5A80;
+  --text-muted: #6B8CAE;
 
-    /* ── Radius & Shadow ── */
-    --radius: 10px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
-    --shadow-sm: 0 1px 3px rgba(30, 58, 95, 0.06);
-    --shadow-md: 0 4px 16px rgba(30, 58, 95, 0.08);
+  /* ── Radius & Shadow ── */
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(30, 58, 95, 0.06);
+  --shadow-md: 0 4px 16px rgba(30, 58, 95, 0.08);
 
-    /* ── Typography ── */
-    --font-display: 'Lora', Georgia, serif;
-    --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
-    --body-font-size: 18px;
-    --line-height: 1.75;
+  /* ── Typography ── */
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  --body-font-size: 18px;
+  --line-height: 1.75;
 }
 
 /* ══════════════════════════════════════════════════
@@ -41,411 +41,413 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: var(--body-font-size);
+  font-size: var(--body-font-size);
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-body);
-    color: var(--text-secondary);
-    line-height: var(--line-height);
-    background-color: var(--page-bg);
-    -webkit-font-smoothing: antialiased;
-    position: relative;
-    overflow: hidden;
-    /* App stays in one viewport */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  line-height: var(--line-height);
+  background-color: var(--page-bg);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1,
 h2,
 h3 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    color: var(--blue-900);
-    line-height: 1.25;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--blue-900);
+  line-height: 1.25;
 }
 
 /* ══════════════════════════════════════════════════
    Layout & Cards
    ══════════════════════════════════════════════════ */
 main {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 600px;
-    min-height: 480px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0 4rem;
 }
 
 /* Base states for the 3 main screens */
 section {
-    position: absolute;
-    width: 90%;
-    max-width: 580px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  width: 90%;
+  max-width: 580px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* JS toggles flex/none plus our caling-stillness.css animation utilities */
 section.active-screen {
-    display: flex;
+  display: flex;
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(191, 219, 254, 0.5);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(191, 219, 254, 0.5);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  padding: 3rem 2.5rem;
 }
 
 /* ══════════════════════════════════════════════════
    Typography Details
    ══════════════════════════════════════════════════ */
 .eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--blue-600);
-    margin-bottom: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue-600);
+  margin-bottom: 0.4rem;
 }
 
 .eyebrow::before {
-    content: "—  ";
+  content: "—  ";
 }
 
 h1 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    margin-bottom: 0.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.8rem;
 }
 
 h2 {
-    font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-    margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  margin-bottom: 0.5rem;
 }
 
 .start-subtitle,
 .results-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    max-width: 480px;
-    margin: 0 auto 2rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin: 0 auto 2rem;
 }
 
 /* ══════════════════════════════════════════════════
    Pills & Buttons
    ══════════════════════════════════════════════════ */
 .feature-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 .feature-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 1rem;
-    background: var(--blue-50);
-    border: 1px solid var(--blue-200);
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--blue-700);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--blue-700);
 }
 
 .feature-pill svg {
-    width: 14px;
-    height: 14px;
-    stroke: var(--blue-500);
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  width: 14px;
+  height: 14px;
+  stroke: var(--blue-500);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .btn-primary {
-    padding: 0.85rem 2.5rem;
-    border-radius: 100px;
-    background: var(--blue-600);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 14px rgba(37, 99, 235, 0.30);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  padding: 0.85rem 2.5rem;
+  border-radius: 100px;
+  background: var(--blue-600);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 14px rgba(37, 99, 235, 0.30);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-primary:focus-visible {
-    outline: 3px solid var(--blue-300);
-    outline-offset: 3px;
+  outline: 3px solid var(--blue-300);
+  outline-offset: 3px;
 }
 
 .btn-outline {
-    padding: 0.6rem 1.5rem;
-    border-radius: 100px;
-    background: transparent;
-    border: 2px solid var(--blue-300);
-    color: var(--blue-600);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
+  padding: 0.6rem 1.5rem;
+  border-radius: 100px;
+  background: transparent;
+  border: 2px solid var(--blue-300);
+  color: var(--blue-600);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* ══════════════════════════════════════════════════
    Exercise Arena
    ══════════════════════════════════════════════════ */
 .exercise-arena {
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-    position: fixed;
-    inset: 0;
-    background: transparent;
-    /* lets iris-bg show through */
-    display: none;
-    /* toggled by JS */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  /* lets iris-bg show through */
+  display: none;
+  /* toggled by JS */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .exercise-arena.active-screen {
-    display: flex;
+  display: flex;
 }
 
 .top-controls {
-    position: absolute;
-    top: 2rem;
-    width: 90%;
-    max-width: 600px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: absolute;
+  top: 2rem;
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Timer styles */
 .timer-display {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--blue-800);
-    font-variant-numeric: tabular-nums;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 0.4rem 1.2rem;
-    border-radius: 100px;
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--blue-200);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-800);
+  font-variant-numeric: tabular-nums;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--blue-200);
 }
 
 /* Container for all rings */
 .pacing-container {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Base ring style */
 .pacing-ring {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 /* Outer ring (dashed, subtle) */
 .ring-outer {
-    border: 2px dashed rgba(96, 165, 250, 0.4);
-    /* blue-400 */
+  border: 2px dashed rgba(96, 165, 250, 0.4);
+  /* blue-400 */
 }
 
 /* Inner ring (solid, slightly thicker) */
 .ring-inner {
-    inset: 15px;
-    /* slightly smaller */
-    border: 3px solid rgba(59, 130, 246, 0.3);
-    /* blue-500 */
-    border-top-color: transparent;
-    /* gives rotation visibility */
-    border-left-color: transparent;
+  inset: 15px;
+  /* slightly smaller */
+  border: 3px solid rgba(59, 130, 246, 0.3);
+  /* blue-500 */
+  border-top-color: transparent;
+  /* gives rotation visibility */
+  border-left-color: transparent;
 }
 
 /* Center dot */
 .breath-orb {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--blue-500);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    transition: transform 3s ease-in-out, background-color 3s ease-in-out;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  transition: transform 3s ease-in-out, background-color 3s ease-in-out;
 }
 
 /* State changes for the breath orb */
 .breath-orb.inhaling {
-    transform: scale(3.5);
-    background: var(--blue-400);
-    /* Lighter on inhale */
+  transform: scale(3.5);
+  background: var(--blue-400);
+  /* Lighter on inhale */
 }
 
 .breath-orb.exhaling {
-    transform: scale(1);
-    background: var(--blue-600);
-    /* Darker/settled on exhale */
+  transform: scale(1);
+  background: var(--blue-600);
+  /* Darker/settled on exhale */
 }
 
 /* Instruction text superimposed on orb */
 .breath-instruction {
-    position: absolute;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--blue-800);
-    z-index: 10;
-    pointer-events: none;
+  position: absolute;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--blue-800);
+  z-index: 10;
+  pointer-events: none;
 }
 
 /* ══════════════════════════════════════════════════
    Results Grid
    ══════════════════════════════════════════════════ */
 .results-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    width: 100%;
-    margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 24px;
 }
 
 .result-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px 12px;
-    background: var(--blue-50);
-    border: 1px solid var(--blue-200);
-    border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-lg);
 }
 
 .result-card-value {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: var(--blue-600);
-    line-height: 1.2;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--blue-600);
+  line-height: 1.2;
 }
 
 .result-card-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
 }
 
 /* ══════════════════════════════════════════════════
    Background (Iris Motif, taken from standard setup)
    ══════════════════════════════════════════════════ */
 .iris-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background:
-        radial-gradient(ellipse 30% 30% at 50% 50%, rgba(30, 58, 95, 0.06) 0%, transparent 100%),
-        radial-gradient(ellipse 55% 55% at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 100%),
-        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 100%),
-        radial-gradient(ellipse 110% 110% at 50% 50%, rgba(147, 197, 253, 0.06) 0%, transparent 100%),
-        radial-gradient(ellipse 140% 140% at 50% 50%, var(--blue-50) 0%, var(--page-bg) 100%);
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 30% 30% at 50% 50%, rgba(30, 58, 95, 0.06) 0%, transparent 100%),
+    radial-gradient(ellipse 55% 55% at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 100%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 100%),
+    radial-gradient(ellipse 110% 110% at 50% 50%, rgba(147, 197, 253, 0.06) 0%, transparent 100%),
+    radial-gradient(ellipse 140% 140% at 50% 50%, var(--blue-50) 0%, var(--page-bg) 100%);
 }
 
 .iris-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 50% 50%,
-            transparent 20%, rgba(37, 99, 235, 0.015) 30%,
-            transparent 40%, rgba(37, 99, 235, 0.01) 55%,
-            transparent 65%, rgba(37, 99, 235, 0.008) 80%, transparent 100%);
-    /* Uses calming-stillness.css classes for the pulse instead of a raw @keyframes block here if desired, 
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%,
+      transparent 20%, rgba(37, 99, 235, 0.015) 30%,
+      transparent 40%, rgba(37, 99, 235, 0.01) 55%,
+      transparent 65%, rgba(37, 99, 235, 0.008) 80%, transparent 100%);
+  /* Uses calming-stillness.css classes for the pulse instead of a raw @keyframes block here if desired, 
      but this subtle background pulse is fine to keep discrete since it's an ambient standard. */
-    animation: irisPulse 8s ease-in-out infinite;
+  animation: irisPulse 8s ease-in-out infinite;
 }
 
 @keyframes irisPulse {
 
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 
-    50% {
-        transform: scale(1.08);
-        opacity: 1;
-    }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
 /* ══════════════════════════════════════════════════
    Disclaimer & Skip Link
    ══════════════════════════════════════════════════ */
 .medical-disclaimer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--blue-50);
-    border-top: 1px solid var(--blue-100);
-    padding: 0.75rem 1rem;
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    z-index: 50;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--blue-50);
+  border-top: 1px solid var(--blue-100);
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  z-index: 50;
 }
 
 .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 1rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--blue-600);
-    color: var(--white);
-    border-radius: var(--radius);
-    font-weight: 600;
-    text-decoration: none;
-    z-index: 500;
-    transition: top 0.2s ease;
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--blue-600);
+  color: var(--white);
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 500;
+  transition: top 0.2s ease;
 }
 
 .skip-link:focus {
-    top: 1rem;
-}/* ═══════════════════════════════════════════════════════════════════
+  top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    RetinaSafe Animation Library — "Calming Stillness"
    v1.0.0
    ───────────────────────────────────────────────────────────────────
@@ -459,23 +461,32 @@ h2 {
    ══════════════════════════════════════════════════ */
 :root {
   /* ── Duration Scale ── */
-  --rs-dur-press:     0.4s;       /* soft button press              */
-  --rs-dur-soft:      0.8s;       /* lower bound for soft motions   */
-  --rs-dur-calm:      1.0s;       /* default calm transition        */
-  --rs-dur-gentle:    1.2s;       /* upper bound for gentle motions */
+  --rs-dur-press: 0.4s;
+  /* soft button press              */
+  --rs-dur-soft: 0.8s;
+  /* lower bound for soft motions   */
+  --rs-dur-calm: 1.0s;
+  /* default calm transition        */
+  --rs-dur-gentle: 1.2s;
+  /* upper bound for gentle motions */
 
   /* ── Easing Curves ── */
-  --rs-ease-breathe:  cubic-bezier(0.45, 0.0, 0.15, 1.0);  /* inhale–exhale */
-  --rs-ease-settle:   cubic-bezier(0.16, 1, 0.3, 1);       /* spring settle  */
-  --rs-ease-silk:     cubic-bezier(0.25, 0.1, 0.25, 1.0);  /* smooth silk    */
+  --rs-ease-breathe: cubic-bezier(0.45, 0.0, 0.15, 1.0);
+  /* inhale–exhale */
+  --rs-ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  /* spring settle  */
+  --rs-ease-silk: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  /* smooth silk    */
 
   /* ── Fade-Up Offsets ── */
-  --rs-fade-y:        24px;   /* vertical travel for fade-up        */
-  --rs-fade-y-sm:     12px;   /* smaller vertical travel variant    */
+  --rs-fade-y: 24px;
+  /* vertical travel for fade-up        */
+  --rs-fade-y-sm: 12px;
+  /* smaller vertical travel variant    */
 
   /* ── Iris Rotation Durations ── */
-  --rs-iris-slow:     22s;
-  --rs-iris-slower:   30s;
+  --rs-iris-slow: 22s;
+  --rs-iris-slower: 30s;
 }
 
 
@@ -493,6 +504,7 @@ h2 {
     transform: translateY(var(--rs-fade-y));
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -504,6 +516,7 @@ h2 {
     transform: translateY(var(--rs-fade-y-sm));
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -512,28 +525,46 @@ h2 {
 
 /* ── Fade-In (opacity only, no spatial movement) ── */
 @keyframes rs-fade-in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* ── Iris Rotation — Slow Clockwise ── */
 @keyframes rs-iris-rotate-cw {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── Iris Rotation — Slow Counter-Clockwise ── */
 @keyframes rs-iris-rotate-ccw {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 /* ── Gentle Breathing Scale (hero accents) ── */
 @keyframes rs-breathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.7;
   }
+
   50% {
     transform: scale(1.06);
     opacity: 1;
@@ -542,16 +573,26 @@ h2 {
 
 /* ── Subtle Pulse (status indicators) ── */
 @keyframes rs-pulse-soft {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.45; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
 }
 
 /* ── Gentle Float (decorative elements) ── */
 @keyframes rs-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 0.85;
   }
+
   50% {
     transform: translateY(-6px);
     opacity: 1;
@@ -605,7 +646,7 @@ h2 {
      ──────────────────────────────────── */
   .btn-soft {
     transition: transform var(--rs-dur-press) var(--rs-ease-silk),
-                opacity  var(--rs-dur-press) var(--rs-ease-silk);
+      opacity var(--rs-dur-press) var(--rs-ease-silk);
   }
 
   .btn-soft:active {
@@ -657,14 +698,37 @@ h2 {
   /* ── Stagger Delays ──
      Apply these alongside any rs-fade-* class
      to create sequential section reveals.         */
-  .rs-delay-1 { animation-delay: 0.10s; }
-  .rs-delay-2 { animation-delay: 0.20s; }
-  .rs-delay-3 { animation-delay: 0.30s; }
-  .rs-delay-4 { animation-delay: 0.45s; }
-  .rs-delay-5 { animation-delay: 0.60s; }
-  .rs-delay-6 { animation-delay: 0.80s; }
-  .rs-delay-7 { animation-delay: 1.00s; }
-  .rs-delay-8 { animation-delay: 1.25s; }
+  .rs-delay-1 {
+    animation-delay: 0.10s;
+  }
+
+  .rs-delay-2 {
+    animation-delay: 0.20s;
+  }
+
+  .rs-delay-3 {
+    animation-delay: 0.30s;
+  }
+
+  .rs-delay-4 {
+    animation-delay: 0.45s;
+  }
+
+  .rs-delay-5 {
+    animation-delay: 0.60s;
+  }
+
+  .rs-delay-6 {
+    animation-delay: 0.80s;
+  }
+
+  .rs-delay-7 {
+    animation-delay: 1.00s;
+  }
+
+  .rs-delay-8 {
+    animation-delay: 1.25s;
+  }
 
 
   /* ────────────────────────────────────
@@ -747,23 +811,23 @@ h2 {
   /*  Composited transition presets (transform + opacity only)  */
   .rs-transition-soft {
     transition: transform var(--rs-dur-soft) var(--rs-ease-breathe),
-                opacity  var(--rs-dur-soft) var(--rs-ease-breathe);
+      opacity var(--rs-dur-soft) var(--rs-ease-breathe);
   }
 
   .rs-transition-calm {
     transition: transform var(--rs-dur-calm) var(--rs-ease-breathe),
-                opacity  var(--rs-dur-calm) var(--rs-ease-breathe);
+      opacity var(--rs-dur-calm) var(--rs-ease-breathe);
   }
 
   .rs-transition-gentle {
     transition: transform var(--rs-dur-gentle) var(--rs-ease-breathe),
-                opacity  var(--rs-dur-gentle) var(--rs-ease-breathe);
+      opacity var(--rs-dur-gentle) var(--rs-ease-breathe);
   }
 
   /*  Settle easing variant (spring-like)  */
   .rs-transition-settle {
     transition: transform var(--rs-dur-calm) var(--rs-ease-settle),
-                opacity  var(--rs-dur-calm) var(--rs-ease-settle);
+      opacity var(--rs-dur-calm) var(--rs-ease-settle);
   }
 }
 
@@ -776,18 +840,31 @@ h2 {
    ══════════════════════════════════════════════════ */
 
 /*  Hidden state   — apply by default, remove to trigger animation  */
-.rs-hidden   { opacity: 0; transform: translateY(var(--rs-fade-y)); }
-.rs-hidden-sm{ opacity: 0; transform: translateY(var(--rs-fade-y-sm)); }
+.rs-hidden {
+  opacity: 0;
+  transform: translateY(var(--rs-fade-y));
+}
+
+.rs-hidden-sm {
+  opacity: 0;
+  transform: translateY(var(--rs-fade-y-sm));
+}
 
 /*  Visible state  — override the hidden state  */
-.rs-visible  { opacity: 1 !important; transform: translateY(0) !important; }
+.rs-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 
 
 /* ══════════════════════════════════════════════════
    5. Print — Strip All Motion
    ══════════════════════════════════════════════════ */
 @media print {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
